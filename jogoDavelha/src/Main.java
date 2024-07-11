@@ -7,30 +7,32 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner (System.in);
-
+        //Criar um objeto Scanner para ler a entrada do usuário
+        
         char[][] jogoVelha = new char [3] [3];
-
+        // Cria um tabuleiro 3x3 para o jogo da velha
+        
         System.out.println("Jogador 1 = X");
         System.out.println("Jogador 2 = O");
 
-        boolean ganhou = false;
-        int jogada = 1;
-        char sinal;
-        int linha = 0, coluna = 0;
+        boolean ganhou = false; // Variável para controlar se alguém ganhou o jogo
+        int jogada = 1; // Contador de jogadas
+        char sinal;  // Variável para armazenar o símbolo do jogador atual
+        int linha = 0, coluna = 0; // Variáveis para armazenar a linha e coluna escolhidas pelo jogador
 
-        while (!ganhou){
+        while (!ganhou){ //Loop principal que continua até que alguém ganhe
 
-            if(jogada % 2==1){//Jogador 1
+            if(jogada % 2==1){// Jogador 1 joga nas jogadas ímpares
 
                 System.out.println("Vez do jogador 1. Escolha linha e coluna (1-3)");
                 sinal = 'X';
-            } else {
+            } else { // Jogador 2 joga nas jogadas pares
                 System.out.println("Vez do jogador 2. Escolha linha e coluna (1-3)");
                 sinal = 'O';
             }
 
             boolean linhaValida = false;
-            while (!linhaValida){
+            while (!linhaValida){ // Verifica se a linha escolhida é válida
                 System.out.println("Entre com a linha (1,2 ou 3)");
                 linha = scanner.nextInt();
                 if (linha >=1 && linha <=3) {
@@ -41,7 +43,7 @@ public class Main {
             }
 
             boolean colunaValida = false;
-            while (!colunaValida){
+            while (!colunaValida){ // Verifica se a coluna escolhida é válida
                 System.out.println("Entre com a coluna (1,2 e 3)");
                 coluna = scanner.nextInt();
                 if (coluna >=1 && coluna<=3) {
@@ -51,8 +53,8 @@ public class Main {
                 }
             }
 
-            linha--;
-            coluna--;
+            linha--; // Ajusta a linha para índice de array
+            coluna--; // Ajusta a coluna para índice de array
             if (jogoVelha[linha] [coluna] == 'X' || jogoVelha[linha][coluna] == 'O'){
                 System.out.println("Posição já usada, tente novamente");
             } else {//jogada válida
